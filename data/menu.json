@@ -5,7 +5,7 @@
             "category": "Snacks",
             "items": [
                 {
-                    "dish": "Palate bread & whipped brown butter",
+                    "dish": "Potato bread & whipped brown butter",
                     "price": 75,
                     "pairings": {
                         "byGlass": {
@@ -55,6 +55,60 @@
                             "vintage": "2018",
                             "price": "1250,-",
                             "note": "The slight sweetness plays beautifully against salty olives."
+                        }
+                    }
+                },
+                {
+                    "dish": "Finocchiona salumi & Iberico Ham",
+                    "price": 220,
+                    "pairings": {
+                        "byGlass": {
+                            "name": "E. Pira di Chiara Boschis Dolcetto Alba",
+                            "grape": "Dolcetto",
+                            "vintage": "2022",
+                            "price": "210,- / 950,-",
+                            "note": "A juicy, purple-fruited red that cuts through the rich fat of the Iberico ham."
+                        },
+                        "midRange": {
+                            "name": "Cavalotto Langhe Nebbiolo",
+                            "grape": "Nebbiolo",
+                            "vintage": "2020",
+                            "price": "1250,-",
+                            "note": "The tannins and acidity are the perfect 'cleaner' for high-quality cured meats."
+                        },
+                        "exclusive": {
+                            "name": "Chateau Lanessan",
+                            "grape": "Cabernet Sauvignon & Merlot",
+                            "vintage": "2014",
+                            "price": "1100,-",
+                            "note": "The earthy complexity of aged Bordeaux highlights the nutty flavors of Bellota-grade ham."
+                        }
+                    }
+                },
+                {
+                    "dish": "Baked Camembert with tomato & vanilla compote and bread",
+                    "price": 280,
+                    "pairings": {
+                        "byGlass": {
+                            "name": "Acham-Magin Riesling Trocken",
+                            "grape": "Riesling",
+                            "vintage": "2024",
+                            "price": "155,- / 700,-",
+                            "note": "Bright acidity to balance the gooey cheese and sweet vanilla compote."
+                        },
+                        "midRange": {
+                            "name": "Domaine E. Guigal Côtes du Rhone Blanc",
+                            "grape": "Viognier & Roussanne",
+                            "vintage": "2024",
+                            "price": "845,-",
+                            "note": "The floral Viognier notes mirror the aromatic vanilla in the compote."
+                        },
+                        "exclusive": {
+                            "name": "Dominique Lafon Bourgogne Blanc",
+                            "grape": "Chardonnay",
+                            "vintage": "2024",
+                            "price": "1650,-",
+                            "note": "A rich, textured white that stands up to the weight of baked cheese."
                         }
                     }
                 },
@@ -199,7 +253,7 @@
                     }
                 },
                 {
-                    "dish": "Scallop with creamy celery root sauce",
+                    "dish": "Scallop from Hitra with creamy celery root sauce",
                     "price": 275,
                     "pairings": {
                         "byGlass": {
@@ -283,6 +337,33 @@
                             "note": "Rare vintage excellence for a classic comfort dish."
                         }
                     }
+                },
+                {
+                    "dish": "Mezzo Maniche with duck, artichoke, orange & 36-month aged Pecorino",
+                    "price": 355,
+                    "pairings": {
+                        "byGlass": {
+                            "name": "Reynaud Crozes-Hermitage Beaumont",
+                            "grape": "Syrah",
+                            "vintage": "2024",
+                            "price": "210,- / 1000,-",
+                            "note": "Peppery Syrah is the classic match for gamey duck and bitter artichoke."
+                        },
+                        "midRange": {
+                            "name": "Cavalotto Langhe Nebbiolo",
+                            "grape": "Nebbiolo",
+                            "vintage": "2020",
+                            "price": "1250,-",
+                            "note": "The high tannins cut through the salt of the aged Pecorino and the richness of the duck."
+                        },
+                        "exclusive": {
+                            "name": "Cyprien Arlaud Vosne-Romanée",
+                            "grape": "Pinot Noir",
+                            "vintage": "2021",
+                            "price": "3600,-",
+                            "note": "An elegant, earthy red to mirror the complexity of orange zest and artichoke."
+                        }
+                    }
                 }
             ]
         },
@@ -317,6 +398,33 @@
                     }
                 },
                 {
+                    "dish": "Grilled Turbot on the bone with shellfish sauce",
+                    "price": 890,
+                    "pairings": {
+                        "byGlass": {
+                            "name": "Dominique Lafon Bourgogne Blanc",
+                            "grape": "Chardonnay",
+                            "vintage": "2024",
+                            "price": "330,- / 1650,-",
+                            "note": "A noble fish requires a noble white; the weight matches the shellfish sauce."
+                        },
+                        "midRange": {
+                            "name": "Chavy-Chouet Meursault Cassé Tete",
+                            "grape": "Chardonnay",
+                            "vintage": "2023",
+                            "price": "2250,-",
+                            "note": "Intense minerality and butter notes to complement the grilled turbot."
+                        },
+                        "exclusive": {
+                            "name": "Domaine de Montille Corton-Charlemagne Grand Cru",
+                            "grape": "Chardonnay",
+                            "vintage": "2021",
+                            "price": "4500,-",
+                            "note": "A legendary Grand Cru pairing for the most premium seafood on the menu."
+                        }
+                    }
+                },
+                {
                     "dish": "Entrecôte with Café de Paris sauce",
                     "price": 450,
                     "pairings": {
@@ -340,6 +448,33 @@
                             "vintage": "2021",
                             "price": "6000,-",
                             "note": "A muscular red for the most serious of steaks."
+                        }
+                    }
+                },
+                {
+                    "dish": "Omaha Entrecôte, sauce au poivre & sauce Cafe de Paris",
+                    "price": "210 per hecto",
+                    "pairings": {
+                        "byGlass": {
+                            "name": "Château Camino Salva",
+                            "grape": "Cabernet Sauvignon & Merlot",
+                            "vintage": "2019",
+                            "price": "175,- / 850,-",
+                            "note": "A classic Haut-Médoc to stand up to the bold pepper and butter sauces."
+                        },
+                        "midRange": {
+                            "name": "Reynaud Crozes-Hermitage Beaumont",
+                            "grape": "Syrah",
+                            "vintage": "2024",
+                            "price": "210,- / 1000,-",
+                            "note": "The spicy, black-pepper profile of Syrah is the natural partner for steak au poivre."
+                        },
+                        "exclusive": {
+                            "name": "Chateau Ducru Beaucaillou",
+                            "grape": "Cabernet Sauvignon & Merlot",
+                            "vintage": "1996",
+                            "price": "7500,-",
+                            "note": "An aged powerhouse with soft tannins and immense depth for a shared steak experience."
                         }
                     }
                 },
