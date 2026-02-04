@@ -22,20 +22,20 @@ export default function SommelierApp() {
     }, [selectedDishName]);
 
     return (
-        <div className="p-4 md:p-12 bg-white min-h-screen font-sans text-slate-900">
+        <div className="p-4 md:p-12 bg-background min-h-screen font-sans text-slate-700">
             <header className="flex flex-col items-center text-center mb-12">
                 <Image
                     src={"/palate.webp"}
                     alt="Palate"
                     width={200}
                     height={200}
+
                 />
-                <div className="h-px w-20 bg-gold-500 mx-auto mb-4" />
-                <p className="text-slate-500 italic">Digital Sommelier Pairing</p>
+                <p className="text-brown text-2xl italic">Palate Sommelier Pairing</p>
             </header>
 
-            <div className="space-y-6">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <div className="space-y-6 p-12  rounded-2xl">
+                <label className="block text-sm uppercase tracking-wider text-slate-700 font-semibold">
                     What are you eating tonight?
                 </label>
                 <select
@@ -44,7 +44,8 @@ export default function SommelierApp() {
                         setSelectedDishName(e.target.value);
                         setSelectedTier('byGlass');
                     }}
-                    className="w-full p-4 border-b-2 border-slate-100 focus:border-slate-900 outline-none bg-transparent text-lg transition-colors cursor-pointer"
+                    className="w-full p-4 rounded-full 
+                   outline-none border border-lightBlue h-8 text-lg transition-colors cursor-pointer"
                 >
                     <option value="">Select a dish</option>
                     {menuData.menu.map((category) => (
@@ -61,11 +62,12 @@ export default function SommelierApp() {
 
             {selectedItem ? (
                 <div className="mt-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+                    <div className="bg-slate-100 border border-lightBlue rounded-2xl p-8 md:p-12 relative overflow-hidden">
+
                         {/* Decorative background element */}
                         <div className="absolute -top-10 -right-10 opacity-5 text-9xl font-serif">“</div>
 
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-amber-700 mb-6">
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-lightBlue mb-6">
                             Our Recommendation
                         </h2>
 
@@ -78,8 +80,8 @@ export default function SommelierApp() {
                                 <button
                                     key={tier.id}
                                     onClick={() => setSelectedTier(tier.id as any)}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedTier === tier.id
-                                        ? 'bg-slate-900 text-white'
+                                    className={`px-4 cursor-pointer py-2 rounded-full text-sm font-medium transition-colors ${selectedTier === tier.id
+                                        ? 'bg-slate-800 text-white'
                                         : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                                         }`}
                                 >
@@ -111,10 +113,17 @@ export default function SommelierApp() {
                     </div>
                 </div>
             ) : (
-                <div className="mt-16 text-center text-black italic">
+                <div className="mt-16 text-center text-brown italic">
                     Select a dish above to discover its perfect wine partner.
                 </div>
             )}
+
+            <Image
+                src={"/plt.png"}
+                alt="Palate"
+                width={500}
+                height={200}
+            />
         </div>
     );
 }
