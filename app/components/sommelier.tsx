@@ -30,7 +30,7 @@ export default function SommelierApp() {
             {/* Fixed Background Layer */}
             <div className="fixed inset-0 z-[-1]">
                 <Image
-                    src="/plt.png"
+                    src="/plt.webp"
                     alt="Background"
                     fill
                     className="object-cover opacity-50 grayscale-20"
