@@ -1,10 +1,11 @@
 // components/SommelierApp.tsx
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import menuDataRaw from '@/data/menu.json';
 import { RestaurantData, MenuItem } from '@/types/menu';
 import Image from 'next/image';
+import Footer from './Footer';
 
 const menuData = menuDataRaw as RestaurantData;
 
@@ -22,11 +23,23 @@ export default function SommelierApp() {
         return null;
     }, [selectedDishName]);
 
-    // Close dropdown when clicking outside (simple implementation)
-    // Ideally use a ref and event listener, but for this scope inline toggle is okay
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
-        <div className="p-4 min-h-screen font-sans text-slate-700 lg:pt-0 relative">
+        <div className="p-4 min-h-screen font-sans text-slate-700 lg:pt-0 relative flex flex-col">
             {/* Fixed Background Layer */}
             <div className="fixed inset-0 z-[-1]">
                 <Image
@@ -56,7 +69,7 @@ export default function SommelierApp() {
                         What are you eating today?
                     </label>
 
-                    <div className="relative z-50">
+                    <div className="relative z-50" ref={dropdownRef}>
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             className="w-full p-4 rounded-full border border-lightBlue/30 bg-white/50 backdrop-blur-sm text-lg text-left transition-all hover:border-brown focus:border-brown flex justify-between items-center group"
@@ -165,6 +178,10 @@ export default function SommelierApp() {
                         Select a dish to discover its perfect partner...
                     </div>
                 )}
+            </div>
+
+            <div className="mt-auto w-full">
+                <Footer />
             </div>
 
 
