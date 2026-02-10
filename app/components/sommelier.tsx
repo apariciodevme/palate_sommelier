@@ -5,6 +5,7 @@ import React, { useState, useMemo } from 'react';
 import menuDataRaw from '@/data/menu.json';
 import { RestaurantData, MenuItem } from '@/types/menu';
 import Image from 'next/image';
+import Footer from './Footer';
 
 const menuData = menuDataRaw as RestaurantData;
 
@@ -26,7 +27,7 @@ export default function SommelierApp() {
     // Ideally use a ref and event listener, but for this scope inline toggle is okay
 
     return (
-        <div className="p-4 min-h-screen font-sans text-slate-700 lg:pt-0 relative">
+        <div className="p-4 min-h-screen font-sans text-slate-700 lg:pt-0 relative flex flex-col">
             {/* Fixed Background Layer */}
             <div className="fixed inset-0 z-[-1]">
                 <Image
@@ -165,6 +166,10 @@ export default function SommelierApp() {
                         Select a dish to discover its perfect partner...
                     </div>
                 )}
+            </div>
+
+            <div className="mt-auto w-full">
+                <Footer />
             </div>
 
 
