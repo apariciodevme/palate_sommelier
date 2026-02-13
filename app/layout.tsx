@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Palate | Sommelier",
+  title: "Drops | Demo",
   description: "Digital Sommelier Pairing",
 };
 
