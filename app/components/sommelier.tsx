@@ -254,7 +254,7 @@ export default function SommelierApp() {
                 </div>
             </main>
 
-            <footer className="mt-auto py-8 text-center text-muted-foreground text-[11px] font-medium tracking-wide uppercase opacity-60">
+            <footer className="mt-auto py-8 text-center text-muted-foreground text-[11px] font-medium tracking-wide opacity-60">
                 <Footer />
             </footer>
         </div>
