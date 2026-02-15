@@ -21,7 +21,15 @@ export const getSession = (): SessionData | null => {
         const stored = localStorage.getItem(SESSION_KEY);
         if (stored) {
             try {
-                return JSON.parse(stored);
+                const session = JSON.parse(stored);
+                // Validate structure: menuData must have a 'menu' array
+                if (session && session.menuData && Array.isArray(session.menuData.menu)) {
+                    return session;
+                }
+                // If data is invalid (e.g. old structure), clear it to prevent crashes
+                console.warn("Invalid session structure detected, clearing session.");
+                localStorage.removeItem(SESSION_KEY);
+                return null;
             } catch (e) {
                 console.error("Failed to parse session", e);
                 return null;

@@ -29,7 +29,7 @@ export default function SommelierApp() {
 
     // Find the selected item object from the flat list of all dishes
     const selectedItem = useMemo(() => {
-        if (!menuData) return null;
+        if (!menuData || !menuData.menu) return null;
         for (const cat of menuData.menu) {
             const found = cat.items.find((item) => item.dish === selectedDishName);
             if (found) return found;
@@ -246,7 +246,7 @@ export default function SommelierApp() {
                                 className="h-[400px] flex items-center justify-center text-center p-8 bg-white/50 backdrop-blur-sm rounded-3xl border border-white/20 border-dashed"
                             >
                                 <p className="text-muted-foreground text-lg font-medium">
-                                    Select a dish to see the recommendation
+                                    Select a dish to find the perfect wine pairing.
                                 </p>
                             </motion.div>
                         )}

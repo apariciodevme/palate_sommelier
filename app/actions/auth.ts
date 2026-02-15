@@ -1,12 +1,7 @@
 'use server';
 
-import fs from 'fs';
-import path from 'path';
+import { supabase } from '@/app/lib/supabase';
 import { RestaurantData } from '@/types/menu';
-
-const DATA_DIR = path.join(process.cwd(), 'data');
-const TENANTS_FILE = path.join(DATA_DIR, 'tenants.json');
-const MENUS_DIR = path.join(DATA_DIR, 'menus');
 
 export async function authenticateAndLoad(code: string) {
     if (!code) {
@@ -14,35 +9,32 @@ export async function authenticateAndLoad(code: string) {
     }
 
     try {
-        const tenantsContent = fs.readFileSync(TENANTS_FILE, 'utf-8');
-        const tenants = JSON.parse(tenantsContent);
+        const { data: tenant, error } = await supabase
+            .from('tenants')
+            .select('*')
+            .eq('access_code', code)
+            .single();
 
-        const tenant = tenants.find((t: any) => t.accessCode === code);
-
-        if (tenant) {
-            // Find menu file
-            const menuPath = path.join(MENUS_DIR, `${tenant.id}.json`);
-
-            // Fallback or specific file
-            let finalMenuPath = menuPath;
-            if (!fs.existsSync(menuPath)) {
-                finalMenuPath = path.join(MENUS_DIR, 'demo.json');
-            }
-
-            const menuContent = fs.readFileSync(finalMenuPath, 'utf-8');
-            const menuData = JSON.parse(menuContent) as RestaurantData;
-
-            return {
-                success: true,
-                data: menuData,
-                restaurantName: tenant.name,
-                tenantId: tenant.id
-            };
-        } else {
+        if (error || !tenant) {
             return { error: 'Invalid access code.' };
         }
+
+        // Return the actual data structure
+        const restaurantData: RestaurantData = {
+            restaurantName: tenant.name,
+            menu: tenant.menu as any // Casting as any because specific array type check might be complex at runtime, but structure is validated
+        };
+
+        return {
+            success: true,
+            tenantId: tenant.id,
+            restaurantName: tenant.name,
+            data: restaurantData,
+            theme: tenant.theme
+        };
+
     } catch (error) {
-        console.error('Login error:', error);
-        return { error: 'An error occurred during login.' };
+        console.error('Auth error:', error);
+        return { error: 'An unexpected error occurred.' };
     }
 }

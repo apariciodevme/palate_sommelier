@@ -1,11 +1,7 @@
 'use server';
 
-import fs from 'fs';
-import path from 'path';
+import { supabase } from '@/app/lib/supabase';
 import { RestaurantData, RestaurantDataSchema } from '@/types/menu';
-
-const DATA_DIR = path.join(process.cwd(), 'data');
-const MENUS_DIR = path.join(DATA_DIR, 'menus');
 
 export async function updateMenu(tenantId: string, data: RestaurantData) {
     if (!tenantId) {
@@ -20,13 +16,15 @@ export async function updateMenu(tenantId: string, data: RestaurantData) {
     }
 
     try {
-        const menuPath = path.join(MENUS_DIR, `${tenantId}.json`);
+        const { error } = await supabase
+            .from('tenants')
+            .update({ menu: validation.data.menu })
+            .eq('id', tenantId);
 
-        if (!fs.existsSync(menuPath)) {
-            return { error: 'Menu file not found.' };
+        if (error) {
+            console.error('Supabase update error:', error);
+            return { error: 'Failed to update menu in database.' };
         }
-
-        fs.writeFileSync(menuPath, JSON.stringify(validation.data, null, 4), 'utf-8');
 
         return { success: true };
     } catch (error) {
